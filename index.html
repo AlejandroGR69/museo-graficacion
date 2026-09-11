@@ -6,15 +6,11 @@
   <meta name="description" content="Museo Web de la Evolución Gráfica - Recorrido interactivo oscuro y futurista por la historia de la computación gráfica." />
   <title>Sintaxis Visual · Museo Web de la Evolución Gráfica</title>
   
-  <!-- Fuentes futuristas y premium -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ==========================================================================
-       Paleta de Color: Oscuro Futurista / Dorado Premium
-       ========================================================================== */
     :root {
       --oro-primario: #d4af37;
       --oro-brillante: #ffdf00;
@@ -55,9 +51,6 @@
     }
     .skip-link:focus { top: 0; }
 
-    /* ==========================================================================
-       Barra superior y Menú Desplegable Lateral
-       ========================================================================== */
     header {
       background-color: var(--fondo-header);
       backdrop-filter: blur(16px);
@@ -122,10 +115,6 @@
       opacity: 0; visibility: hidden; transition: 0.4s ease; z-index: 240;
     }
     .overlay.active { opacity: 1; visibility: visible; }
-
-    /* ==========================================================================
-       Estructura Principal
-       ========================================================================== */
 
     main { max-width: 1000px; margin: 3rem auto; padding: 0 1.5rem; }
 
@@ -257,7 +246,6 @@
       <div class="autor-badge">Elaborado por: Alejandro González Ramírez</div>
     </section>
 
-    <!-- 1. Evolución Histórica -->
     <section id="evolucion">
       <h2>Cinco Momentos Clave en la Evolución Gráfica</h2>
       <p class="instructions">Hitos técnicos y conceptuales que transformaron la relación entre el cálculo computacional y la representación visual.</p>
@@ -323,7 +311,6 @@
       </article>
     </section>
 
-    <!-- 2. Aplicación Práctica -->
     <section id="aplicacion">
       <h2>Aplicación Real: Tomografía Médica (DVR)</h2>
       <p><strong>Usuario:</strong> Médico Radiólogo Especialista / Cirujano Diagnóstico.</p>
@@ -333,7 +320,6 @@
       <p><strong>Decisión:</strong> El médico puede rotar libremente el modelo 3D del paciente, medir bordes con precisión milimétrica y trazar la trayectoria quirúrgica más segura antes del procedimiento.</p>
     </section>
 
-    <!-- 3. Laboratorio de Color -->
     <section id="laboratorio">
       <h2>Laboratorio de Dinámica del Color Digital</h2>
       <p class="instructions">Análisis analítico sobre la correlación y transducción matemática entre el espacio físico aditivo RGB y los modelos perceptuales HSL/HSV.</p>
@@ -352,7 +338,7 @@
         <h3>Experimento 2: Gris Neutro Medio (Estado Acromático)</h3>
         <p><strong>Predicción:</strong> Al igualar los tres canales RGB a un valor intermedio (128), la saturación caerá a cero y el valor del Tono resultará indefinido.</p>
         <div class="img-container">
-          <img src="24349276-9549-4f38-93c4-f9eeb31d1fd9.png" alt="Demostración visual del Experimento 2: Gris Neutro">
+          <img src="24349276-9549-4f38-93c4-f9eeb31d1fd9.jpg" alt="Demostración visual del Experimento 2: Gris Neutro">
         </div>
         <p><strong>Datos:</strong> RGB: (128, 128, 128) | HSV: (0°, 0%, 50.2%) | Delta: 0.0 (0).</p>
         <p><strong>Deducción:</strong> Al coincidir Máximo y Mínimo, el Delta equivale a 0. Un Delta nulo imposibilita calcular el Tono matemáticamente, derivando en un estado acromático donde la saturación se anula totalmente.</p>
@@ -362,14 +348,13 @@
         <h3>Experimento 3: Rojo Primario Intenso</h3>
         <p><strong>Predicción:</strong> Al activar únicamente el canal rojo al máximo sin interferencia, el tono resultará en 0° con un nivel de brillo completo.</p>
         <div class="img-container">
-          <img src="d1f19850-0fdb-4ef2-a94d-845f49de628c.jpg" alt="Demostración visual del Experimento 3: Rojo Puro">
+          <img src="d1f19850-0fda-4ef2-a94d-845f49de628c.jpg" alt="Demostración visual del Experimento 3: Rojo Puro">
         </div>
         <p><strong>Datos:</strong> RGB: (255, 0, 0) | HSV: (0°, 100%, 100%) | Delta: 1.0 (255).</p>
         <p><strong>Deducción:</strong> Dado que el valor Máximo coincide con el Rojo (255) y los demás son cero, la fórmula evalúa la diferencia relativa (G - B) / Delta. Al ser ambos cero, el Tono se consolida exactamente en 0°.</p>
       </article>
     </section>
 
-    <!-- 4. Algoritmo -->
     <section id="algoritmo">
       <h2>De la Fórmula Matemática al Algoritmo</h2>
       <p>Para convertir el modelo aditivo <strong>RGB al espacio perceptual HSV</strong>, primero realizamos la <strong>normalización</strong> proyectando los enteros de 8 bits a un rango flotante continuo [0, 1]. Luego se deducen el valor máximo y mínimo.</p>
@@ -419,10 +404,10 @@ function rgbAHsv(r, g, b) {
 
 // DIAGNÓSTICO EN CONSOLA //
 console.log(rgbAHsv(255, 0, 0));     // -> { h: 0, s: 100, v: 100 }
-console.log(rgbAHsv(0, 255, 255));   // -> { h: 180, s: 100, v: 100 }</code></pre>
+console.log(rgbAHsv(0, 255, 255));   // -> { h: 180, s: 100, v: 100 }
+console.log(rgbAHsv(128, 128, 128)); // -> { h: 0, s: 0, v: 50 }</code></pre>
     </section>
 
-    <!-- 5. Glosario -->
     <section id="glosario">
       <h2>Glosario de Fundamentos Técnicos</h2>
       <dl>
@@ -449,14 +434,12 @@ console.log(rgbAHsv(0, 255, 255));   // -> { h: 180, s: 100, v: 100 }</code></pr
       </dl>
     </section>
 
-    <!-- 6. Conclusión -->
     <section id="conclusion">
       <h2>Conclusión del Análisis Gráfico</h2>
       <p>Al principio solía considerar que los gráficos por computadora se basaban únicamente en ilustrar píxeles manualmente en pantallas mediante programas de diseño comunes. Sin embargo, la evidencia analizada sobre las transformaciones analíticas del color, las estrategias matemáticas como el Z-Buffer y el recorrido de aceleración en hardware cambiaron por completo mi perspectiva.</p>
       <p>Hoy entiendo que el entorno visual moderno interactivo no es un mero dibujo, sino la convergencia coordinada de álgebra lineal, física óptica computacional, geometría proyectiva y procesamiento paralelo masivo (arquitectura GPU) ejecutado a 60 veces por segundo de manera transparente para el espectador.</p>
     </section>
 
-    <!-- 7. Fuentes -->
     <section id="fuentes">
       <h2>Fuentes Bibliográficas</h2>
       <ol>
