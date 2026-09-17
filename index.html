@@ -136,14 +136,7 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       margin-bottom: 1.2rem; font-size: clamp(2.2rem, 5vw, 3.2rem); text-shadow: var(--sombra-texto);
     }
-    .hero p { font-size: 1.15rem; color: var(--texto-suave); max-width: 800px; margin: 0 auto 1.5rem; }
-    
-    .autor-badge {
-      display: inline-block; margin-top: 1rem; padding: 0.5rem 1.5rem; border-radius: 50px;
-      border: 1px solid var(--oro-primario); color: var(--oro-brillante); background: rgba(212, 175, 55, 0.05);
-      font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: 0.5px;
-      text-transform: uppercase; font-size: 0.85rem; box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.1);
-    }
+    .hero p { font-size: 1.15rem; color: var(--texto-suave); max-width: 800px; margin: 0 auto; }
 
     h2 {
       color: var(--oro-primario); border-bottom: 1px solid var(--borde-tarjeta);
@@ -175,15 +168,23 @@
       margin: 1.5rem 0 1rem; background: #000; border-radius: 8px; overflow: hidden;
       border: 1px solid var(--oro-oscuro); display: flex; justify-content: center;
     }
+    .img-container a { display: block; width: 100%; text-align: center; }
     article img {
-      max-width: 100%; height: auto; display: block; opacity: 0.9;
+      max-width: 100%; max-height: 420px; object-fit: contain; display: block; margin: 0 auto; opacity: 0.9;
       transition: transform 0.5s ease, opacity 0.5s ease;
     }
     article img:hover { transform: scale(1.02); opacity: 1; }
 
     small.credito {
-      color: var(--oro-primario); font-size: 0.8rem; display: block; margin-top: 0.5rem;
-      font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 0.5px;
+      color: var(--oro-primario); font-size: 0.85rem; display: block; margin-top: 0.5rem;
+      font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.5px;
+    }
+    small.credito a {
+      color: var(--oro-brillante); text-decoration: none; border-bottom: 1px dashed var(--oro-primario);
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+    }
+    small.credito a:hover {
+      color: #ffffff; border-bottom-style: solid;
     }
 
     pre {
@@ -199,19 +200,47 @@
 
     dt { font-weight: 700; color: var(--oro-brillante); margin-top: 1.5rem; font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; }
     dd { margin-left: 1.5rem; margin-top: 0.4rem; margin-bottom: 0.8rem; color: var(--texto-suave); }
-    ol { padding-left: 1.8rem; color: var(--texto-suave); }
-    li { margin-bottom: 1rem; }
+
+    /* Estilos APA 7 para Referencias Bibliográficas */
+    .apa-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .apa-list li {
+      padding-left: 2.5em;
+      text-indent: -2.5em;
+      margin-bottom: 1.5rem;
+      color: var(--texto-suave);
+      font-size: 0.95rem;
+      word-break: break-word;
+    }
+    .apa-list a {
+      color: var(--oro-primario);
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    .apa-list a:hover {
+      color: var(--oro-brillante);
+    }
 
     footer {
-      text-align: center; padding: 3rem 1.5rem; background-color: #050507; color: var(--texto-suave);
+      text-align: center; padding: 3.5rem 1.5rem; background-color: #050507; color: var(--texto-suave);
       border-top: 1px solid var(--oro-oscuro); font-size: 0.95rem; margin-top: 4rem; box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
     }
-    footer strong { color: var(--oro-primario); }
+    footer strong { color: var(--oro-brillante); }
+
+    .autor-badge-footer {
+      display: inline-block; margin-bottom: 1rem; padding: 0.6rem 1.8rem; border-radius: 50px;
+      border: 1px solid var(--oro-primario); color: var(--oro-brillante); background: rgba(212, 175, 55, 0.08);
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; font-size: 0.9rem; box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+    }
 
     @media (max-width: 768px) {
       section { padding: 1.8rem; }
       .hero { padding: 2.5rem 1.5rem; }
       .header-title { font-size: 1rem; }
+      .apa-list li { padding-left: 1.5em; text-indent: -1.5em; }
     }
   </style>
 </head>
@@ -243,7 +272,6 @@
     <section class="hero">
       <h1>Sintaxis Visual: El Viaje de la Graficación</h1>
       <p>La computación gráfica constituye la disciplina de las ciencias computacionales dedicada a convertir formulaciones matemáticas y estructuras geométricas abstractas en entidades visuales interactivas mediante cómputo algorítmico, habilitando la exploración perceptual de información compleja.</p>
-      <div class="autor-badge">Elaborado por: Alejandro González Ramírez</div>
     </section>
 
     <section id="evolucion">
@@ -257,9 +285,11 @@
         <p><strong>Trascendencia:</strong> Constituyó el fundamento directo del Diseño Asistido por Computadora (CAD) y la estructura inicial de la programación visual orientada a objetos.</p>
         <p><strong>Ejemplo actual:</strong> Software de prototipado e ingeniería vectorial como Figma o AutoCAD.</p>
         <div class="img-container">
-          <img src="0fcf7d19-f1f3-4f2d-b1e8-00412889009e.jpg" alt="Ivan Sutherland operando la consola con Sketchpad">
+          <a href="https://commons.wikimedia.org/wiki/File:Sketchpad_N-Component_Element.png" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Sketchpad_N-Component_Element.png" alt="Estructura de elemento vectorial en Ivan Sutherland Sketchpad">
+          </a>
         </div>
-        <small class="credito">Crédito: Archivo Histórico del MIT / Ivan Sutherland.</small>
+        <small class="credito">Crédito: <a href="https://commons.wikimedia.org/wiki/File:Sketchpad_N-Component_Element.png" target="_blank" rel="noopener noreferrer">Massachusetts Institute of Technology / Ivan Sutherland (Wikimedia Commons)</a></small>
       </article>
 
       <article>
@@ -269,9 +299,11 @@
         <p><strong>Trascendencia:</strong> Habilitó la visualización coherente de superficies volumétricas sólidas y opacas, resolviendo el problema de las caras ocultas.</p>
         <p><strong>Ejemplo actual:</strong> Motores de videojuegos como Unreal Engine y Unity.</p>
         <div class="img-container">
-          <img src="429084a2-6f18-41b1-9f2f-11338bf08e7c.png" alt="Demostración de renderizado 3D y su respectivo mapa de profundidad Z-Buffer">
+          <a href="https://commons.wikimedia.org/wiki/File:Z_buffer-Z_fighting.png" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Z_buffer-Z_fighting.png" alt="Demostración de renderizado 3D y discriminación de profundidad Z-Buffer">
+          </a>
         </div>
-        <small class="credito">Crédito: Ficheros OBJ con texturas | Programación de gráficos 3D | Hektor Profe</small>
+        <small class="credito">Crédito: <a href="https://commons.wikimedia.org/wiki/File:Z_buffer-Z_fighting.png" target="_blank" rel="noopener noreferrer">Visualización de Búfer Z (Wikimedia Commons)</a></small>
       </article>
 
       <article>
@@ -281,9 +313,11 @@
         <p><strong>Trascendencia:</strong> Se consolidó como la referencia universal ineludible para comparar algoritmos de mapeo textural, radiosidad y renderizado analítico.</p>
         <p><strong>Ejemplo actual:</strong> Objeto poligonal primitivo integrado por defecto en herramientas como Blender.</p>
         <div class="img-container">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Utah_teapot_simple_2.png" alt="Renderizado de la tetera de Utah">
+          <a href="https://commons.wikimedia.org/wiki/File:Utah_teapot_simple_2.png" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Utah_teapot_simple_2.png" alt="Renderizado de la tetera de Utah">
+          </a>
         </div>
-        <small class="credito">Crédito: Modelo original de Newell / Computer History Museum</small>
+        <small class="credito">Crédito: <a href="https://commons.wikimedia.org/wiki/File:Utah_teapot_simple_2.png" target="_blank" rel="noopener noreferrer">Modelo original de Martin Newell / Computer History Museum (Wikimedia Commons)</a></small>
       </article>
 
       <article>
@@ -293,9 +327,11 @@
         <p><strong>Trascendencia:</strong> Dio origen al estándar contemporáneo de la computación masivamente paralela y posibilitó la industria de los videojuegos 3D fluidos.</p>
         <p><strong>Ejemplo actual:</strong> Tarjetas aceleradoras de gráficos de última generación.</p>
         <div class="img-container">
-          <img src="dda10c26-e493-4724-b723-e2f65a638b05.jpg" alt="Placa de circuito de aceleración gráfica vintage">
+          <a href="https://commons.wikimedia.org/wiki/File:3dfx_Voodoo_5500.jpg" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/3dfx_Voodoo_5500.jpg" alt="Aceleradora gráfica 3dfx Voodoo hardware vintage">
+          </a>
         </div>
-        <small class="credito">Crédito: Blog elhacker.NET: Historia de las tarjetas gráficas: los inicios de las GPU</small>
+        <small class="credito">Crédito: <a href="https://commons.wikimedia.org/wiki/File:3dfx_Voodoo_5500.jpg" target="_blank" rel="noopener noreferrer">Tarjeta gráfica Aceleradora 3dfx Voodoo (Wikimedia Commons)</a></small>
       </article>
 
       <article>
@@ -305,9 +341,11 @@
         <p><strong>Trascendencia:</strong> Unificó formalmente las metodologías de renderizado fotorrealista físico de cine con los entornos gráficos interactivos.</p>
         <p><strong>Ejemplo actual:</strong> Trazado de trayectorias (Path Tracing) e iluminación global dinámica.</p>
         <div class="img-container">
-          <img src="58fcdbc1-f1e9-4b42-ba8a-427cdad5bf1e.png" alt="Diagrama esquemático del motor de Ray Tracing">
+          <a href="https://commons.wikimedia.org/wiki/File:Ray_trace_diagram.svg" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Ray_trace_diagram.svg" alt="Diagrama esquemático del trazado de rayos Ray Tracing">
+          </a>
         </div>
-        <small class="credito">Crédito: NVIDIA Corporation</small>
+        <small class="credito">Crédito: <a href="https://commons.wikimedia.org/wiki/File:Ray_trace_diagram.svg" target="_blank" rel="noopener noreferrer">Diagrama de Algoritmo de Trazado de Rayos (Wikimedia Commons)</a></small>
       </article>
     </section>
 
@@ -328,30 +366,39 @@
         <h3>Experimento 1: Cian Saturado de Emisión Máxima</h3>
         <p><strong>Predicción:</strong> Un estímulo luminoso con verde y azul al tope (y rojo nulo) mantendrá el brillo al 100%, con matiz centrado en los 180° del círculo cromático.</p>
         <div class="img-container">
-          <img src="6c5e2476-d500-499d-81cb-a7aae904f1e4.jpg" alt="Demostración visual del Experimento 1: Color Cian">
+          <a href="https://commons.wikimedia.org/wiki/File:Solid_cyan.svg" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Solid_cyan.svg" alt="Demostración visual del Experimento 1: Color Cian RGB (0, 255, 255)" style="max-height: 180px; width: 100%; object-fit: cover;">
+          </a>
         </div>
         <p><strong>Datos:</strong> RGB: (0, 255, 255) | HSV: (180°, 100%, 100%) | Delta: 1.0 (255).</p>
         <p><strong>Deducción:</strong> Puesto que el valor mínimo es 0 y los valores Verde y Azul son máximos, el Delta es 1.0. Esto confirma que se ubica exactamente en la frontera opuesta al rojo (180°), alcanzando saturación absoluta.</p>
+        <small class="credito">Fuente: <a href="https://commons.wikimedia.org/wiki/File:Solid_cyan.svg" target="_blank" rel="noopener noreferrer">Muestra Cromática de Cian Puro (Wikimedia Commons)</a></small>
       </article>
 
       <article>
         <h3>Experimento 2: Gris Neutro Medio (Estado Acromático)</h3>
         <p><strong>Predicción:</strong> Al igualar los tres canales RGB a un valor intermedio (128), la saturación caerá a cero y el valor del Tono resultará indefinido.</p>
         <div class="img-container">
-          <img src="24349276-9549-4f38-93c4-f9eeb31d1fd9.jpg" alt="Demostración visual del Experimento 2: Gris Neutro">
+          <a href="https://commons.wikimedia.org/wiki/File:Solid_gray.svg" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Solid_gray.svg" alt="Demostración visual del Experimento 2: Gris Neutro RGB (128, 128, 128)" style="max-height: 180px; width: 100%; object-fit: cover;">
+          </a>
         </div>
         <p><strong>Datos:</strong> RGB: (128, 128, 128) | HSV: (0°, 0%, 50.2%) | Delta: 0.0 (0).</p>
         <p><strong>Deducción:</strong> Al coincidir Máximo y Mínimo, el Delta equivale a 0. Un Delta nulo imposibilita calcular el Tono matemáticamente, derivando en un estado acromático donde la saturación se anula totalmente.</p>
+        <small class="credito">Fuente: <a href="https://commons.wikimedia.org/wiki/File:Solid_gray.svg" target="_blank" rel="noopener noreferrer">Muestra Cromática de Gris Acromático (Wikimedia Commons)</a></small>
       </article>
 
       <article>
         <h3>Experimento 3: Rojo Primario Intenso</h3>
         <p><strong>Predicción:</strong> Al activar únicamente el canal rojo al máximo sin interferencia, el tono resultará en 0° con un nivel de brillo completo.</p>
         <div class="img-container">
-          <img src="d1f19850-0fda-4ef2-a94d-845f49de628c.jpg" alt="Demostración visual del Experimento 3: Rojo Puro">
+          <a href="https://commons.wikimedia.org/wiki/File:Solid_red.svg" target="_blank" rel="noopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Solid_red.svg" alt="Demostración visual del Experimento 3: Rojo Puro RGB (255, 0, 0)" style="max-height: 180px; width: 100%; object-fit: cover;">
+          </a>
         </div>
         <p><strong>Datos:</strong> RGB: (255, 0, 0) | HSV: (0°, 100%, 100%) | Delta: 1.0 (255).</p>
         <p><strong>Deducción:</strong> Dado que el valor Máximo coincide con el Rojo (255) y los demás son cero, la fórmula evalúa la diferencia relativa (G - B) / Delta. Al ser ambos cero, el Tono se consolida exactamente en 0°.</p>
+        <small class="credito">Fuente: <a href="https://commons.wikimedia.org/wiki/File:Solid_red.svg" target="_blank" rel="noopener noreferrer">Muestra Cromática de Rojo Puro (Wikimedia Commons)</a></small>
       </article>
     </section>
 
@@ -441,20 +488,35 @@ console.log(rgbAHsv(128, 128, 128)); // -> { h: 0, s: 0, v: 50 }</code></pre>
     </section>
 
     <section id="fuentes">
-      <h2>Fuentes Bibliográficas</h2>
-      <ol>
-        <li>Foley, J. D., & van Dam, A. (1995). <em>Computer Graphics: Principles and Practice</em> (2.ª ed.). Addison-Wesley Professional.</li>
-        <li>Computer History Museum. (2023). <em>The Utah Teapot and Early 3D Graphics History</em>. CHM Exhibits.</li>
-        <li>Akenine-Möller, T., Haines, E., & Hoffman, N. (2018). <em>Real-Time Rendering</em> (4.ª ed.). A K Peters/CRC Press.</li>
-        <li>W3C Consortium. (2021). <em>CSS Color Module Level 4: Converting RGB to HSV</em>.</li>
-      </ol>
+      <h2>Fuentes Bibliográficas (Estilo APA 7.ª edición)</h2>
+      <ul class="apa-list">
+        <li>
+          Akenine-Möller, T., Haines, E., &amp; Hoffman, N. (2018). <em>Real-time rendering</em> (4.ª ed.). A K Peters/CRC Press. <a href="https://doi.org/10.1201/b22086" target="_blank" rel="noopener noreferrer">https://doi.org/10.1201/b22086</a>
+        </li>
+        <li>
+          Catmull, E. (1974). <em>A subdivision algorithm for computer display of curved surfaces</em> (Publicación N.º UTEC-CSc-74-133) [Tesis doctoral, University of Utah]. Computer Science Department, University of Utah. <a href="https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.131.7820" target="_blank" rel="noopener noreferrer">https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.131.7820</a>
+        </li>
+        <li>
+          Computer History Museum. (2023). <em>The Utah Teapot and early 3D graphics history</em>. CHM Exhibits. <a href="https://www.computerhistory.org/collections/catalog/102636302" target="_blank" rel="noopener noreferrer">https://www.computerhistory.org/collections/catalog/102636302</a>
+        </li>
+        <li>
+          Foley, J. D., van Dam, A., Feiner, S. K., &amp; Hughes, J. F. (1995). <em>Computer graphics: Principles and practice</em> (2.ª ed.). Addison-Wesley Professional. <a href="https://dl.acm.org/doi/book/10.5555/548325" target="_blank" rel="noopener noreferrer">https://dl.acm.org/doi/book/10.5555/548325</a>
+        </li>
+        <li>
+          Sutherland, I. E. (1963). <em>Sketchpad: A man-machine graphical communication system</em> (Informe Técnico N.º UCAM-CL-TR-574) [Tesis doctoral, Massachusetts Institute of Technology]. University of Cambridge Computer Laboratory. <a href="https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-574.pdf" target="_blank" rel="noopener noreferrer">https://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-574.pdf</a>
+        </li>
+        <li>
+          World Wide Web Consortium. (2021). <em>CSS color module level 4: Converting RGB to HSV</em> (W3C Working Draft). <a href="https://www.w3.org/TR/css-color-4/" target="_blank" rel="noopener noreferrer">https://www.w3.org/TR/css-color-4/</a>
+        </li>
+      </ul>
     </section>
 
   </main>
 
   <footer>
-    <p>Diseñado y estructurado por <strong>Alejandro González Ramírez</strong></p>
-    <p style="margin-top: 5px; font-size: 0.8rem; font-family: 'Space Grotesk', sans-serif;">PROYECTO DE INGENIERÍA EN SISTEMAS - COMPUTACIÓN GRÁFICA</p>
+    <div class="autor-badge-footer">Elaborado por: Alejandro González Ramírez</div>
+    <p>Diseñado y estructurado para la asignatura de <strong>Computación Gráfica</strong></p>
+    <p style="margin-top: 6px; font-size: 0.8rem; font-family: 'Space Grotesk', sans-serif; color: var(--texto-suave);">PROYECTO DE INGENIERÍA EN SISTEMAS COMPUTACIONALES · 2026</p>
   </footer>
 
   <script>
